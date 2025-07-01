@@ -11,7 +11,7 @@ const conversationId = ref(null)
 const messagesContainer = ref(null)
 
 // API 기본 URL (개발 환경)
-const API_BASE_URL = 'http://127.0.0.1:8000'
+const API_BASE_URL = 'http://15.164.251.134:8000'
 
 // 초기 메시지
 onMounted(() => {
