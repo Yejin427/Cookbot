@@ -18,7 +18,7 @@ onMounted(() => {
   messages.value.push({
     type: 'bot',
     content: '안녕하세요! 🍳 한국 요리 레시피 도우미입니다.\n궁금한 요리나 레시피에 대해 무엇이든 물어보세요!',
-    timestamp: new Date().toLocaleTimeString()
+    timestamp: new Date().toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit' })
   })
 })
 
@@ -45,7 +45,7 @@ const sendMessage = async () => {
   messages.value.push({
     type: 'user',
     content: userMessage,
-    timestamp: new Date().toLocaleTimeString()
+    timestamp: new Date().toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit' })
   })
 
   // 로딩 상태 설정
@@ -79,7 +79,7 @@ const sendMessage = async () => {
     messages.value.push({
       type: 'bot',
       content: data.response,
-      timestamp: new Date().toLocaleTimeString(),
+      timestamp: new Date().toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit' }),
       sources: data.sources,
       responseTime: data.response_time
     })
@@ -89,7 +89,7 @@ const sendMessage = async () => {
     messages.value.push({
       type: 'bot',
       content: '죄송합니다. 서버에 연결할 수 없습니다. 잠시 후 다시 시도해주세요.',
-      timestamp: new Date().toLocaleTimeString(),
+      timestamp: new Date().toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit' }),
       isError: true
     })
   } finally {
@@ -120,7 +120,7 @@ const clearChat = () => {
   messages.value = [{
     type: 'bot',
     content: '안녕하세요! 🍳 한국 요리 레시피 도우미입니다.\n궁금한 요리나 레시피에 대해 무엇이든 물어보세요!',
-    timestamp: new Date().toLocaleTimeString()
+    timestamp: new Date().toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit' })
   }]
   conversationId.value = null
 }
@@ -200,9 +200,9 @@ const onIngredientsInput = (ingredients) => {
             
             <div class="message-info">
               <span class="timestamp">{{ message.timestamp }}</span>
-              <span v-if="message.responseTime" class="response-time">
+              <!-- <span v-if="message.responseTime" class="response-time">
                 ({{ Math.round(message.responseTime * 1000) }}ms)
-              </span>
+              </span> -->
             </div>
           </div>
         </div>
